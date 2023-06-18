@@ -1,0 +1,642 @@
+// Colors
+$main-black: #0e131d;
+$neon-color: #08f;
+
+body {
+    background-color: $main-black;
+}
+
+.header {
+    &-video {
+        position: relative;
+        video {
+            width: 100%;
+            height: 100%;
+            background-color: $main-black;
+            object-fit: cover;
+            object-position: bottom;
+        }
+    }
+    
+    &-bottom {
+        position: relative;
+        padding: 20px 0;
+        &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-image: url(../image/casino-background-one.jpeg);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.12;
+            z-index: -1;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 0 17px 3px #660273,0 0 4px 2px #660273;
+            z-index: 1;
+            animation-name: gradient-shadow;
+            animation-timing-function: ease;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        &__buttons {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 5;
+        }
+        &__btn {
+            a {
+                position: relative;
+                display: flex;
+                align-items: center;
+                padding: 13px 25px;
+                color: #fff;
+                font-size: 16px;
+                border-radius: 10px;
+                text-align: center;
+                text-decoration: none;
+                backdrop-filter: blur(30px);
+                transition: all .2s ease-out;
+                &:hover {
+                    color: #34903c;
+                }
+                i.icon {
+                    display: flex;
+                    width: 35px;
+                    height: 35px;
+                    margin-right: 15px;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                &::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    box-shadow: 0 0 17px 3px #660273,0 0 4px 2px #660273;
+                    z-index: -1;
+                    animation-name: gradient-shadow;
+                    animation-timing-function: ease;
+                    animation-duration: 2s;
+                    animation-iteration-count: infinite;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+}
+
+.intro {
+    position: relative;
+    padding: 50px 0;
+    background-image: url(../image/casino-background-second.jpeg);
+    background-position: center;
+    &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #0e131d;
+        opacity: .8;
+    } 
+    &-form {
+        position: relative;
+        max-width: 768px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 50px;
+        backdrop-filter: blur(10px);
+        border: 2px solid #581a6b;
+        border-radius: 15px;
+        z-index: 1;
+        .strong {
+            margin-bottom: 15px;
+            font-size: 24px;
+            color: #fff;
+            text-align: center;
+        }
+        p {
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+        }
+        .form-group {
+            height: 150px;
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 24px 60px;
+            background: url(../image/form-background.png)no-repeat;
+            background-size: 100% 100%;
+            input {
+                margin-bottom: 15px;
+                background-color: transparent;
+                border: 1px solid #9f9f9f;
+                &::placeholder {
+                    color: #9f9f9f;
+                }
+            }
+        }
+        .form-check {
+            margin: 10px 0 30px 0;
+            padding: 0;
+            ul {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                li {
+                    margin-right: 30px;
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                    label {
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        color: #fff;
+                    }
+                    input {
+                        width: 0;
+                        height: 0;
+                        opacity: 0;
+                        display: none;
+                    }
+                    label > span {
+                        width: 20px;
+                        height: 20px;
+                        display: flex;
+                        justify-content: center;
+                        border: 2px solid #fff;
+                        margin-right: 10px;
+                        border-radius: 3px;
+                        transition: all .3s;
+                    }
+                    input:checked + label > span {
+                        border: 10px solid #84b3ff;
+                        animation: bounce 250ms;
+                    }
+                    input:checked + label > span::before {
+                        content: '';
+                        position: absolute;
+                        top: 13px;
+                        left: 6px;
+                        border-right: 2px solid transparent;
+                        border-bottom: 2px solid transparent;
+                        transform: rotate(45deg);
+                        transform-origin: 0% 100%;
+                        animation: checked-box 125ms 250ms forwards;
+                    }
+                    @keyframes checked-box {
+                        0% {
+                            width: 0;
+                            height: 0;
+                            border-color: #fff;
+                            transform: translate(0,0) rotate(45deg);
+                        }
+                        33% {
+                            width: 4px;
+                            height: 0;
+                            border-color: #fff;
+                            transform: translate(0,0) rotate(45deg);
+                        }
+                        100% {
+                            width: 4px;
+                            height: 8px;
+                            border-color: #fff;
+                            transform: translate(0,-8px) rotate(45deg);
+                        }
+                    }
+                    @keyframes bounce {
+                        0% {
+                            transform: scale(1);
+                        }
+                        33% {
+                            transform: scale(.7);
+                        }
+                        100% {
+                            transform: scale(1);
+                        }
+                    }
+                    a {
+                        color: #fff;
+                        transition: all .3s ease-out;
+                        &:hover {
+                            color: #84b3ff;
+                        }
+                    }
+                }
+            }
+        }
+        ul.login-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            margin-top: 15px;
+            padding: 0;
+            list-style: none;
+            li {
+                margin-right: 30px;
+                &:last-child {
+                    margin-right: 0;
+                }
+                a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-width: 153px;
+                    height: 40px;
+                    background: url(../image/btn-background.png) no-repeat;
+                    cursor: pointer;
+                    color: #fff;
+                    font-size: 16px;
+                    text-decoration: none;
+                    transition: all .3s ease-out;
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                    i.icon {
+                        display: flex;
+                        width: 16px;
+                        height: 16px;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+    &-content {
+        position: relative;
+        padding: 50px;
+        backdrop-filter: blur(10px);
+        border: 2px solid #350d42;
+        border-radius: 15px;
+        color: #fff;
+        z-index: 1;
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            li {
+                margin-bottom: 10px;
+            }
+        }
+        h2 {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.footer {
+    position: relative;
+    &-row {
+        position: relative;
+        &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-image: url(../image/casino-background-one.jpeg);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.12;
+            z-index: -1;
+        }
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 0 17px 3px #660273,0 0 4px 2px #660273;
+            z-index: 1;
+            animation-name: gradient-shadow;
+            animation-timing-function: ease;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+        &__content {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+            z-index: 5;
+        }
+        &__license {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 13px 25px;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            backdrop-filter: blur(30px);
+            transition: all .2s ease-out;
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                box-shadow: 0 0 17px 3px #660273,0 0 4px 2px #660273;
+                z-index: -1;
+                animation-name: gradient-shadow;
+                animation-timing-function: ease;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+                border-radius: 10px;
+            }
+        }
+        &__click {
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 13px 25px;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            backdrop-filter: blur(30px);
+            transition: all .2s ease-out;
+            &:hover {
+                opacity: 0.7;
+            }
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                box-shadow: 0 0 17px 3px #660273,0 0 4px 2px #660273;
+                z-index: -1;
+                animation-name: gradient-shadow;
+                animation-timing-function: ease;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+                border-radius: 10px;
+            }
+        }
+        &__icons {
+            position: relative;
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(30px);
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                box-shadow: 0 0 17px 3px #660273,0 0 4px 2px #660273;
+                z-index: -1;
+                animation-name: gradient-shadow;
+                animation-timing-function: ease;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+                border-radius: 10px;
+            }
+            ul {
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+                padding: 10px;
+                list-style: none;
+                li {
+                    margin-bottom: 10px;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    a {
+                        img {
+                            width: 30px;
+                            height: 30px;
+                            object-position: 0 3px;
+                        }
+                    }
+                }
+                &.setting {
+                    position: relative;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 10px;
+                    padding: 10px;
+                    background-color: #262933;
+                    border-radius: 10px;
+                    &::before {
+                        content: "";
+                        display: block;
+                        width: 100%;
+                        height: 2px;
+                        background-color: #333a47;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                    &::after {
+                        content: "";
+                        display: block;
+                        width: 2px;
+                        height: 100%;
+                        background-color: #333a47;
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50%);
+                    }
+                    li {
+                        margin: 0;
+                        img {
+                            width: 30px;
+                            height: 30px;
+                            object-position: 0 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-bottom {
+        padding: 20px 0;
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            margin-bottom: 15px;
+            padding: 0;
+            list-style: none;
+            li {
+                margin-right: 10px;
+                &:last-child {
+                    margin-right: 0;
+                }
+                a {
+                    color: #84b3ff;
+                    font-size: 14px;
+                }
+            }
+        }
+        p {
+            color: #505050;
+            font-size: 12px;
+            text-align: center;
+            a {
+                color: #84b3ff;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+// Neon animation
+@keyframes gradient-shadow {
+    0% {
+        box-shadow: 0 0 17px 3px #0F8AA6,0 0 4px 2px #0F8AA6;
+    }
+    20% {
+        box-shadow: 0 0 17px 3px #1B4C8C,0 0 4px 2px #1B4C8C;
+    }
+    40% {
+        box-shadow: 0 0 17px 3px #711073,0 0 4px 2px #711073;
+    }
+    60% {
+        box-shadow: 0 0 17px 3px #BF34B6,0 0 4px 2px #BF34B6;
+    }
+    80% {
+        box-shadow: 0 0 17px 3px #660273,0 0 4px 2px #660273;
+    }
+    100% {
+        box-shadow: 0 0 17px 3px #A904BF,0 0 4px 2px #A904BF;
+    }
+}
+
+// Mobile
+@media only screen and (max-width: 1200px) {}
+
+@media only screen and (max-width: 992px) {
+    .footer-bottom ul {
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header-bottom__buttons  > .header-bottom__btn {
+        display: none;
+    }
+    .header-bottom__btn a i.icon {
+        display: none;
+    }
+    .ms-5 {
+        margin-left: 1rem!important;
+    }
+    .header-bottom__btn a {
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+    .intro-form {
+        padding: 30px;
+    }
+    .intro-form .form-group {
+        padding: 24px 30px;
+    }
+    .intro-form .form-check ul li label,
+    .intro-form .form-check ul li a {
+        font-size: 14px;
+    }
+    .footer-row__content {
+        flex-direction: column;
+    }
+    .footer-row__license {
+        justify-content: center;
+    }
+    .footer-row__click {
+        justify-content: center;
+        margin: 15px 0;
+    }
+    .footer-row__icons {
+        justify-content: center;
+    }
+    .footer-row__icons ul {
+        flex-direction: row;
+    }
+    .footer-row__icons ul li {
+        margin: 0;
+        margin-right: 10px;
+    }
+    .footer-row__icons ul.setting {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        background-color: transparent;
+        border-radius: 0;
+    }
+    .footer-row__icons ul.setting::before,
+    .footer-row__icons ul.setting::after {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .header-video video {
+        height: 90px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .intro-form ul.login-buttons {
+        flex-direction: column;
+    }
+    .intro-form ul.login-buttons li {
+        margin: 0;
+        margin-bottom: 15px;
+    }
+    .intro-form ul.login-buttons li:last-child {
+        margin-bottom: 0;
+    }
+    .intro-form .form-check ul li {
+        margin-right: 15px;
+    }
+    .intro-form .form-check ul li label, .intro-form .form-check ul li a {
+        font-size: 12px;
+    }
+    .intro-form p {
+        font-size: 14px;
+    }
+    .intro-form .strong {
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+}
